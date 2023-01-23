@@ -1,0 +1,8 @@
+A random variable is a numeric outcome of a random phenomenom.
+
+Event: any subset of a sample space.
+
+Events are usually denoted as capital characters(E,F,A,B,etc)
+
+They can be described by listing the outcome in words or descibing them.
+
