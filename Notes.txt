@@ -6,3 +6,7 @@ Events are usually denoted as capital characters(E,F,A,B,etc)
 
 They can be described by listing the outcome in words or descibing them.
 
+S= {abc,acb,bac,bca,cab,cba}:
+Let E be the event a finishes first.
+List the above sample space:
+E={abc,acb,bac,bca}
