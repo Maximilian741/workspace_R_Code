@@ -12,17 +12,12 @@ myVectorTrue <- c()
 myVectorFalse <- c()
 
 
-#Sample from myVector 100 times
-for (i in 1:100) {
-  myVectorSample <- sample(myVector, 2, replace = TRUE)
-  if (sum(myVectorSample) == 14) {
-    myVectorTrue <- c(myVectorTrue, TRUE)
-  } else {
-    myVectorFalse <- c(myVectorFalse, FALSE)
-  }
-}
+#Find the mean of the false vector
+mean(myVectorFalse)
+
 
 #Find the mean of the true vector
 mean(myVectorTrue)
+
 
 
