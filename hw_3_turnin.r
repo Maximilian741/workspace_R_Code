@@ -22,7 +22,7 @@ marbles <- c(rep("white", nwhite), rep("red", nred), rep("blue", nblue))
 outcomes <- matrix(NA, nrow = nsim, ncol = npick)
 # Loop through the simulations
 for (i in 1:nsim) {
-# Randomly pick the marbles and index the outcomes matrix[i,i(i+1)(i+2))].
+  # Randomly pick the marbles and index the outcomes matrix[i,i(i+1)(i+2))].
   outcomes[i, ] <- sample(marbles, npick, replace = FALSE)
 }
 # Count the number of times all three marbles are the same color, then divide by the number of simulations.
@@ -32,20 +32,12 @@ sum(apply(outcomes, 1, function(x) length(unique(x)) == 1))/nsim
 
 
 #Problem 2
-
-#Theretical probability: 
 #P(Xandra hits bullseye) = 0.7
 #P(Marco hits bullseye) = 0.6
 #P(Cade hits bullseye) = 0.4
-#The following are the conditional probabilities:
-#P(Xandra hits bullseye | exactly one arrow hits bullseye) = 0.4117647
-#P(Marco hits bullseye | exactly one arrow hits bullseye) = 0.3529412
-#P(Cade hits bullseye | exactly one arrow hits bullseye) = 0.2352941
-# Set up the probabilities
 prob_A <- 0.7
 prob_B <- 0.6
 prob_C <- 0.4
-
 # Set the number of simulations
 num_sims <- 10000
 # Run the simulations
@@ -68,12 +60,10 @@ for (i in 1:num_sims) {
     count_C <- count_C + 1
   }
 }
-
 # Calculate the empirical probabilities
 empirical_prob_A <- count_A/num_sims
 empirical_prob_B <- count_B/num_sims
 empirical_prob_C <- count_C/num_sims
-
 # Print the results
 print(empirical_prob_A)
 print(empirical_prob_B)
