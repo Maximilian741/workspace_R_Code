@@ -39,8 +39,8 @@ sum(apply(outcomes, 1, function(x) length(unique(x)) == 1))/nsim
 #P(Cade hits bullseye) = 0.4
 #The following are the conditional probabilities:
 #P(Xandra hits bullseye | exactly one arrow hits bullseye) = 0.4117647
-#P(Marco hits bullseye | exactly one arrow hits bullseye) = 0.3529412
-#P(Cade hits bullseye | exactly one arrow hits bullseye) = 0.2352941
+#P(Marco hits bullseye | exactly one arrow hits bullseye) = 0.3529412 by Bayes' theorem: P(Marco hits bullseye | exactly one arrow hits bullseye) = P(exactly one arrow hits bullseye | Marco hits bullseye) * P(Marco hits bullseye) / P(exactly one arrow hits bullseye) = 0.3529412
+#P(Cade hits bullseye | exactly one arrow hits bullseye) = 0.2352941 
 # Set up the probabilities
 prob_A <- 0.7
 prob_B <- 0.6
