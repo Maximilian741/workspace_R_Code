@@ -21,10 +21,9 @@ sim_results <- replicate(n_sim, rbinom(n_components, 1, q))
 
 # Count the number of simulations in which at least three components are functional
 #apply() is a function that applies a function to each column or row of a matrix
+#we call sum(x) through use of the function(x) logic.
 #sum() is a function that sums the values in a vector, and we areusing it to provide a conditional statement 
 #that will return a 1 if the sum of the vector is greater than or equal to 3, and a 0 if it is not.
-#Describe the apply fucntion:
-#apply(X, MARGIN, FUN, )
 functional_simulations <- apply(sim_results, 2, function(x) sum(x) >= 3)
 
 # Estimate the probability using the proportion of simulations in which at least three components are functional
