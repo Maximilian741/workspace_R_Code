@@ -28,7 +28,9 @@
 set.seed(1234)
 box2 <- 0
 count3 <- 0
-for(i in 1: 10000){
+#I think P(Y=4) means that the outer loop is running 4 times and the inner loop is running 5 times.  Either way if you increase
+#the number of times the outer loop runs, the probability will consolidate around 3 as per the law of large numbers.  Which is the theoretical probability.
+for(i in 1: 4){
     for(i in 1:5){
         box2 <- c(0,0,0,1,1,1,1,1,1,1)
         sample2 <- sample(box2, 2, replace = FALSE)
@@ -43,4 +45,4 @@ for(i in 1: 10000){
         }
     }
 }
-count3/10000
+count3/4
