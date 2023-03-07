@@ -21,3 +21,26 @@
  #P(X = 2) = (nchoose(3,2) * nchoose(7,0) / nchoose(10,2)) == 3/45.
  #The expected value is as follows: E(X) = 0 * P(X = 0) + 1 * P(X = 1) + 2 * P(X = 2) == 0 * 21/45 + 1 * 21/45 + 2 * 3/45 == 0.6.
  #The ezxpected value in this instance represents the average number of defective items that will be found in a sample of 2 items.
+#Let Y = the total number of defective items in FIVE such samples.  Use a simulation to represent p(Y = 4).
+#The theoretical probability is 5 * 0.6 == 3.
+#Empirical Probability:
+#Set the seed:
+set.seed(1234)
+box2 <- 0
+count3 <- 0
+for(i in 1: 10000){
+    for(i in 1:5){
+        box2 <- c(0,0,0,1,1,1,1,1,1,1)
+        sample2 <- sample(box2, 2, replace = FALSE)
+        sum(sample2 == 0)
+        #if the number of defective items in the sample is 1, add 1 to the count
+        if(sum(sample2 == 0) == 1){
+            count3 <- count3 + 1
+         }
+         #if the number of defective items in the sample is 2, add 2 to the count
+        if(sum(sample2 == 0) == 2){
+            count3 <- count3 + 2
+        }
+    }
+}
+count3/10000
