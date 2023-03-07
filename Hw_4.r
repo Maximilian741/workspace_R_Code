@@ -7,8 +7,45 @@
 #Alice, Bob, and Cecilia are playing a game where they take turns rolling a 6-sided die until a winning
 #roll is achieved. Alice wins if she gets a 1 or a 2, Bob wins if he rolls a 1, 2, or 3, and Cecilia wins if
 #she gets a 1, 2, 3, or 4. Alice will go first, Bob second, and Cecilia third.
-
 #Let X = the total number of rolls required until someone wins.  Find P(X = 4).
+
+
+#P(X=4) == 'what is the probability that it will take 4 rolls for someone to win?'
+alice <- c(1,1,0,0,0,0)
+bob <- c(1,1,1,0,0,0)
+cecilia <- c(1,1,1,1,0,0)
+
+asample <- c(0,0,0,0)
+bsample <- c(0,0,0,0)
+csample <- c(0,0,0,0)
+
+awins <- 0
+bwins <- 0
+cwins <- 0
+
+for(i in 1: 10000){
+    for(j in 1:4){
+        asample[j] <- sample(alice, 1, replace = TRUE)
+        if(asample[4] == 1 && asample[1] != 1 && asample[2] != 1 && asample[3] != 1){
+            awins <- awins + 1
+            break
+        }
+        bsample[j] <- sample(bob, 1, replace = TRUE)
+        if(bsample[4] == 1 && bsample[1] != 1 && bsample[2] != 1 && bsample[3] != 1){
+            bwins <- bwins + 1
+            break
+        }
+        csample[j] <- sample(cecilia, 1, replace = TRUE)
+        if(csample[4] == 1 && csample[1] != 1 && csample[2] != 1 && csample[3] != 1){
+            cwins <- cwins + 1
+            break
+        }
+    }
+
+}
+total <- awins + bwins + cwins
+total/10000
+
 
  #-------------------------------------------------------------------------------------------------------------------------------------------------------
  #-------------------------------------------------------------------------------------------------------------------------------------------------------
