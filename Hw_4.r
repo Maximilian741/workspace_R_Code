@@ -9,7 +9,7 @@
 #she gets a 1, 2, 3, or 4. Alice will go first, Bob second, and Cecilia third.
 #Let X = the total number of rolls required until someone wins.  Find P(X = 4).
 
-
+#THe theoretical probability is given by the notion that there are only two ways to end the game in 4 rolls.
 #P(X=4) == 'what is the probability that it will take 4 rolls for someone to win?'
 alice <- c(1,1,0,0,0,0)
 bob <- c(1,1,1,0,0,0)
@@ -24,27 +24,38 @@ bwins <- 0
 cwins <- 0
 
 for(i in 1: 10000){
-    for(j in 1:4){
+    for (j in 1:4){
         asample[j] <- sample(alice, 1, replace = TRUE)
-        if(asample[4] == 1 && asample[1] != 1 && asample[2] != 1 && asample[3] != 1){
-            awins <- awins + 1
-            break
-        }
-        bsample[j] <- sample(bob, 1, replace = TRUE)
-        if(bsample[4] == 1 && bsample[1] != 1 && bsample[2] != 1 && bsample[3] != 1){
-            bwins <- bwins + 1
-            break
-        }
+        bsample[j] <- sample(bob, 1 , replace = TRUE)
         csample[j] <- sample(cecilia, 1, replace = TRUE)
-        if(csample[4] == 1 && csample[1] != 1 && csample[2] != 1 && csample[3] != 1){
-            cwins <- cwins + 1
-            break
-        }
+    }
+    if (asample[1] == 1 & asample[2] == 1 & asample[3] == 0 & asample[4] == 0){
+        awins <- awins + 1
+    }
+    if (bsample[1] == 1 & bsample[2] == 1 & bsample[3] == 1 & bsample[4] == 0){
+        bwins <- bwins + 1
+    }
+    if (csample[1] == 1 & csample[2] == 1 & csample[3] == 1 & csample[4] == 1){
+        cwins <- cwins + 1
     }
 
 }
-total <- awins + bwins + cwins
-total/10000
+
+empprob <- (awins + bwins + cwins)/100000
+empprob
+
+#The theoretical probability of this happening is (4/6) * (3/6) * (2/6) * (2/6) = .037037
+#The empirical probability is 0.0371
+
+   
+
+#Empirical prob round 2:
+#Set the seed:
+
+#P(x= 4) is the probability that it will take 4 rolls for someone to win.  So the outer loop will run 4 times and the inner loop will run 10000 times.
+#The theoretical probability of this happening is (4/6) * (3/6) * (2/6) * (2/6) = .037037
+#The empirical probability is 0.0371
+
 
 
  #-------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -62,11 +73,13 @@ total/10000
 #The theoretical probability is 5 * 0.6 == 3.
 #Empirical Probability:
 #Set the seed:
-set.seed(1234)
+set.seed(61)
 box2 <- 0
 count3 <- 0
 #I think P(Y=4) means that the outer loop is running 4 times and the inner loop is running 5 times.  Either way if you increase
 #the number of times the outer loop runs, the probability will consolidate around 3 as per the law of large numbers.  Which is the theoretical probability.
+
+
 for(i in 1: 4){
     for(i in 1:5){
         box2 <- c(0,0,0,1,1,1,1,1,1,1)
