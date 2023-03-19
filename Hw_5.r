@@ -22,7 +22,6 @@ for(i in 1:100000){
     }
     general_counter <- 0
 }
-
 less_than_12_counter/100000
 more_than_12_counter/100000
 tie_counter/100000
